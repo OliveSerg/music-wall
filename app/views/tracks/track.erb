@@ -1,0 +1,20 @@
+<p>
+  Author: <%= @track.author%><br>
+  Song: <%= @track.song_title%><br>
+  <% if @track.url? %>
+    Url: <%= @track.url %>
+  <% end %>
+</p>
+
+<% if @tracks.any?%>
+  <p>
+    Other songs by<% @track.author%> includes:<br>
+    <% @tracks.each do |track| %>
+      <%= track.song_title %><br>
+      <% if track.url? %>
+        Url: <%= track.url %><br>
+      <% end %>
+    <% %>
+  </p>
+<% end %>
+<a href="/tracks">Back to the Music Wall</a>
